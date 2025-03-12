@@ -1,11 +1,153 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Trang Web Demo</title>
+  <meta charset="UTF-8" />
+  <title>Web Phim Dễ Thương</title>
+  <style>
+    /* RESET CSS cơ bản */
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ffe4e1; /* Màu hồng nhạt */
+      color: #333;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      color: #ff69b4; /* Hồng đậm hơn cho tiêu đề */
+      margin-bottom: 10px;
+    }
+    header p {
+      color: #777;
+      font-size: 1rem;
+    }
+
+    /* Grid hiển thị các "card phim" */
+    .movies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .movie-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 20px;
+      /* Giúp card nhìn gọn gàng hơn */
+    }
+
+    .movie-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .movie-title {
+      font-size: 1.2rem;
+      color: #e91e63; 
+      margin: 10px 0;
+    }
+
+    .movie-iframe {
+      width: 100%;
+      max-width: 500px;  /* Đặt giới hạn chiều rộng khung video */
+      margin: 0 auto;
+      padding: 0 10px;   /* Chừa chút padding cho đẹp */
+    }
+    .movie-iframe iframe {
+      width: 100%;
+      height: 280px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 10px 0;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, GitHub Pages!</h1>
-  <p>Trang web đầu tiên của mình.</p>
+  <header>
+    <h1>Kho Phim Dễ Thương</h1>
+    <p>Chọn phim bạn muốn xem, và thưởng thức ngay!</p>
+  </header>
+
+  <main>
+    <div class="movies-grid">
+
+      <!-- Phim 1 -->
+      <div class="movie-card">
+        <div class="movie-image">
+          <!-- Thay link ảnh bằng ảnh dễ thương bạn thích -->
+          <img src="https://picsum.photos/id/237/400/250" alt="Poster phim 1" />
+        </div>
+        <h2 class="movie-title">Phim Dễ Thương 1</h2>
+        <div class="movie-iframe">
+          <!-- Nhúng link google drive: thay YOUR_FILE_ID bằng ID thực -->
+          <iframe 
+            src="https://drive.google.com/file/d/1PqbKHXiAWNfXDOEyFFrf2afXxx-fF2_2/preview" 
+            allow="autoplay" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Phim 2 -->
+      <div class="movie-card">
+        <div class="movie-image">
+          <img src="https://picsum.photos/id/1025/400/250" alt="Poster phim 2" />
+        </div>
+        <h2 class="movie-title">Phim Dễ Thương 2</h2>
+        <div class="movie-iframe">
+          <iframe 
+            src="https://drive.google.com/file/d/YOUR_FILE_ID/preview" 
+            allow="autoplay" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Phim 3 -->
+      <div class="movie-card">
+        <div class="movie-image">
+          <img src="https://picsum.photos/id/433/400/250" alt="Poster phim 3" />
+        </div>
+        <h2 class="movie-title">Phim Dễ Thương 3</h2>
+        <div class="movie-iframe">
+          <iframe 
+            src="https://drive.google.com/file/d/YOUR_FILE_ID/preview" 
+            allow="autoplay" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Nếu muốn thêm nhiều phim, copy khối .movie-card bên trên
+           và thay link ảnh + iframe Drive mới -->
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025. Trang Chiếu Phim Dễ Thương Tự Làm</p>
+  </footer>
 </body>
 </html>
