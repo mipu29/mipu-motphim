@@ -20,7 +20,6 @@
     }
 
     body {
-      position: relative;
       min-height: 100vh;
       background-color: #ffe4e1; /* Nền hồng nhạt */
       font-family: 'Patrick Hand', cursive;
@@ -49,25 +48,23 @@
       display: flex;
       justify-content: center;
       gap: 20px;
-      margin: 20px auto; /* canh giữa theo chiều ngang */
-      max-width: 1200px; /* giới hạn độ rộng, bạn có thể chỉnh */
+      margin: 20px auto;
+      max-width: 1200px;
       padding: 0 20px;
     }
     .images-row img {
-      width: 250px; /* bạn có thể thay đổi kích cỡ ảnh */
+      width: 250px; /* kích cỡ ảnh */
       height: auto;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
       object-fit: cover;
     }
 
-    /* Thẻ phim đặt ở dưới, bên trái nếu muốn 
-       (hoặc ta chỉ để nó dưới cùng, canh giữa,... tuỳ ý) */
+    /* Thẻ phim (một ví dụ) */
     .movie-container {
-      width: 250px;      /* thẻ phim nhỏ */
-      margin: 40px 20px; /* cách lề và ảnh nền */
+      width: 250px;
+      margin: 40px 20px; 
     }
-
     .movie-card {
       background-color: #fff;
       border-radius: 10px;
@@ -75,26 +72,22 @@
       text-align: center;
       overflow: hidden;
     }
-
     .movie-card img {
       width: 100%;
       display: block;
       height: auto;
     }
-
     .movie-title {
       font-size: 1.4rem;
       color: #e91e63;
       margin: 10px 0;
     }
-
     .movie-desc {
       font-size: 1rem;
       color: #555;
       margin: 0 10px 10px 10px;
       text-align: center;
     }
-
     .folder-link {
       display: inline-block;
       margin-bottom: 10px;
@@ -124,29 +117,41 @@
   <!-- Tiêu đề -->
   <header>
     <h1>Kho phim dành cho Mi Xinh</h1>
-    <p>Bấm vào hình hoặc nút dưới đây để vào thư mục phim nhé!</p>
+    <p>Bấm vào hình để xem trực tiếp ảnh từ Google Drive!</p>
   </header>
 
-  <!-- 4 hình ảnh trong 1 hàng ngang -->
+  <!-- Hàng ngang 4 ảnh Google Drive -->
   <section class="images-row">
-    <!-- Bạn thay link ảnh tuỳ ý -->
-    <img src="https://drive.google.com/file/d/1it8EtFSZNzVxmCcnioHJcUsy336XyBDx/view?usp=drive_link">
-    <img src="https://drive.google.com/file/d/1AafjniNZQuQV9xrXFmfzrHqJ2lQhhgaS/view?usp=drive_link">
-    <img src="https://drive.google.com/file/d/1ungzUzEQaSylPT4grhMacSImYVXuRa4Y/view?usp=drive_link">
-    <img src="https://drive.google.com/file/d/1yhaTUKYPnNdjMHBZEgwVBlawUdCQPAWi/view?usp=drive_link">
+    <!-- Thay FILE_ID_xxx bằng ID thực của ảnh trên Drive -->
+    <img 
+      src="https://drive.google.com/uc?export=view&id=1it8EtFSZNzVxmCcnioHJcUsy336XyBDx" 
+      alt="Ảnh 1 từ Google Drive"
+    >
+    <img 
+      src="https://drive.google.com/uc?export=view&id=1AafjniNZQuQV9xrXFmfzrHqJ2lQhhgaS" 
+      alt="Ảnh 2 từ Google Drive"
+    >
+    <img 
+      src="https://drive.google.com/uc?export=view&id=1ungzUzEQaSylPT4grhMacSImYVXuRa4Y" 
+      alt="Ảnh 3 từ Google Drive"
+    >
+    <img 
+      src="https://drive.google.com/uc?export=view&id=1ungzUzEQaSylPT4grhMacSImYVXuRa4Y" 
+      alt="Ảnh 4 từ Google Drive"
+    >
   </section>
 
-  <!-- Thẻ phim, có thể để góc trái hay canh giữa tuỳ ý -->
+  <!-- Ví dụ thẻ phim -->
   <div class="movie-container">
     <div class="movie-card">
-      <a href="https://drive.google.com/drive/folders/1-L6TYrTeyFHWh3Un-tDKj_QI86m1cJnB?usp=drive_link">
-        <img src="https://picsum.photos/id/237/400/250" alt="Poster phim">
-      </a>
+      <img 
+        src="https://drive.google.com/uc?export=view&id=FILE_ID_POSTER"
+        alt="Poster phim"
+      >
       <h2 class="movie-title">Phim Bộ Dễ Thương</h2>
       <p class="movie-desc">
         Thư mục chứa nhiều tập phim thú vị, nhẹ nhàng, phù hợp để thư giãn.
       </p>
-      <!-- Thay FOLDER_ID bằng ID thư mục Google Drive -->
       <a
         class="folder-link"
         href="https://drive.google.com/drive/folders/1-L6TYrTeyFHWh3Un-tDKj_QI86m1cJnB?usp=drive_link"
