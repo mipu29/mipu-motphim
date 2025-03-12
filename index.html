@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <title>Web Phim Dễ Thương</title>
+  <meta charset="UTF-8">
+  <title>Kho phim dành cho Mi Xinh</title>
+
+  <!-- Dùng Google Font "Patrick Hand" (hoặc font dễ thương khác) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" 
+    rel="stylesheet" 
+  />
+
   <style>
     /* RESET CSS cơ bản */
     * {
@@ -12,8 +20,8 @@
     }
 
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #ffe4e1; /* Màu hồng nhạt */
+      font-family: 'Patrick Hand', cursive; /* Font chữ dễ thương */
+      background-color: #ffe4e1; /* Hồng nhạt */
       color: #333;
       padding: 20px;
     }
@@ -23,19 +31,19 @@
       margin-bottom: 30px;
     }
     header h1 {
-      font-size: 2.2rem;
-      color: #ff69b4; /* Hồng đậm hơn cho tiêu đề */
-      margin-bottom: 10px;
+      font-size: 2.4rem;
+      color: #ff69b4; /* Hồng đậm cho tiêu đề */
+      margin-bottom: 8px;
     }
     header p {
-      color: #777;
-      font-size: 1rem;
+      font-size: 1.2rem;
+      color: #555;
     }
 
-    /* Grid hiển thị các "card phim" */
+    /* Grid hiển thị các "thẻ phim" */
     .movies-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
       max-width: 1200px;
       margin: 0 auto;
@@ -43,40 +51,47 @@
 
     .movie-card {
       background-color: #fff;
-      border-radius: 8px;
+      border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       overflow: hidden;
       text-align: center;
-      padding-bottom: 20px;
-      /* Giúp card nhìn gọn gàng hơn */
+      padding-bottom: 16px;
     }
 
-    .movie-image img {
+    .movie-card img {
       width: 100%;
       height: auto;
       display: block;
     }
 
     .movie-title {
-      font-size: 1.2rem;
+      font-size: 1.6rem;
       color: #e91e63; 
       margin: 10px 0;
     }
 
-    .movie-iframe {
-      width: 100%;
-      max-width: 500px;  /* Đặt giới hạn chiều rộng khung video */
-      margin: 0 auto;
-      padding: 0 10px;   /* Chừa chút padding cho đẹp */
-    }
-    .movie-iframe iframe {
-      width: 100%;
-      height: 280px;
-      border: none;
-      border-radius: 8px;
+    .movie-desc {
+      font-size: 1rem;
+      color: #555;
+      margin: 0 10px 10px 10px;
     }
 
-    /* Footer */
+    /* Nút hoặc link "Xem phim" */
+    .watch-link {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 10px 20px;
+      background-color: #ff69b4;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+      font-size: 1rem;
+    }
+    .watch-link:hover {
+      background-color: #f06292; /* Đậm hơn một chút khi hover */
+    }
+
     footer {
       text-align: center;
       margin-top: 40px;
@@ -85,10 +100,11 @@
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>Kho Phim Dễ Thương</h1>
-    <p>Chọn phim bạn muốn xem, và thưởng thức ngay!</p>
+    <h1>Kho phim dành cho Mi Xinh</h1>
+    <p>Chăm chỉ coi phim để có người iu nha bà!</p>
   </header>
 
   <main>
@@ -96,58 +112,61 @@
 
       <!-- Phim 1 -->
       <div class="movie-card">
-        <div class="movie-image">
-          <!-- Thay link ảnh bằng ảnh dễ thương bạn thích -->
-          <img src="https://picsum.photos/id/237/400/250" alt="Poster phim 1" />
-        </div>
+        <!-- Thay link ảnh bằng ảnh bạn muốn làm poster -->
+        <a href="https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing" target="_blank">
+          <img src="https://picsum.photos/id/237/400/250" alt="Poster phim 1">
+        </a>
         <h2 class="movie-title">Phim Dễ Thương 1</h2>
-        <div class="movie-iframe">
-          <!-- Nhúng link google drive: thay YOUR_FILE_ID bằng ID thực -->
-          <iframe 
-            src="https://drive.google.com/file/d/1PqbKHXiAWNfXDOEyFFrf2afXxx-fF2_2/preview" 
-            allow="autoplay" 
-            allowfullscreen>
-          </iframe>
-        </div>
+        <p class="movie-desc">
+          Phim 1: Tình tiết hấp dẫn, vui nhộn, phù hợp để giải trí lúc rảnh rỗi.
+        </p>
+        <!-- Thay link Google Drive cho nút -->
+        <a class="watch-link" 
+          href="https://drive.google.com/file/d/1-L6TYrTeyFHWh3Un-tDKj_QI86m1cJnB?usp=drive_link/view?usp=sharing" 
+          target="_blank">
+          Xem Phim
+        </a>
       </div>
 
       <!-- Phim 2 -->
       <div class="movie-card">
-        <div class="movie-image">
-          <img src="https://picsum.photos/id/1025/400/250" alt="Poster phim 2" />
-        </div>
+        <a href="https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing" target="_blank">
+          <img src="https://picsum.photos/id/1025/400/250" alt="Poster phim 2">
+        </a>
         <h2 class="movie-title">Phim Dễ Thương 2</h2>
-        <div class="movie-iframe">
-          <iframe 
-            src="https://drive.google.com/file/d/YOUR_FILE_ID/preview" 
-            allow="autoplay" 
-            allowfullscreen>
-          </iframe>
-        </div>
+        <p class="movie-desc">
+          Phim 2: Câu chuyện ly kỳ, đáng yêu, mang đến nhiều tiếng cười.
+        </p>
+        <a class="watch-link" 
+          href="https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing" 
+          target="_blank">
+          Xem Phim
+        </a>
       </div>
 
       <!-- Phim 3 -->
       <div class="movie-card">
-        <div class="movie-image">
-          <img src="https://picsum.photos/id/433/400/250" alt="Poster phim 3" />
-        </div>
+        <a href="https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing" target="_blank">
+          <img src="https://picsum.photos/id/433/400/250" alt="Poster phim 3">
+        </a>
         <h2 class="movie-title">Phim Dễ Thương 3</h2>
-        <div class="movie-iframe">
-          <iframe 
-            src="https://drive.google.com/file/d/YOUR_FILE_ID/preview" 
-            allow="autoplay" 
-            allowfullscreen>
-          </iframe>
-        </div>
+        <p class="movie-desc">
+          Phim 3: Kịch bản hấp dẫn, cảnh quay đẹp mắt, chắc chắn không làm bạn thất vọng.
+        </p>
+        <a class="watch-link" 
+          href="https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing" 
+          target="_blank">
+          Xem Phim
+        </a>
       </div>
 
-      <!-- Nếu muốn thêm nhiều phim, copy khối .movie-card bên trên
-           và thay link ảnh + iframe Drive mới -->
+      <!-- Muốn thêm nhiều phim? Copy khối .movie-card trên, 
+           rồi thay link ảnh + link Drive + text cho phù hợp -->
     </div>
   </main>
 
   <footer>
-    <p>© 2025. Trang Chiếu Phim Dễ Thương Tự Làm</p>
+    <p>© 2025 - Kho phim dành cho Mi Xinh</p>
   </footer>
 </body>
 </html>
