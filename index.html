@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Kho phim dành cho Mi Xinh</title>
 
-  <!-- Google Font "Patrick Hand" (dễ thương) -->
+  <!-- Google Font "Patrick Hand" (font chữ dễ thương) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link 
     href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" 
@@ -20,7 +20,7 @@
     }
 
     body {
-      font-family: 'Patrick Hand', cursive; /* Font chữ dễ thương */
+      font-family: 'Patrick Hand', cursive;
       background-color: #ffe4e1; /* Hồng nhạt */
       color: #333;
       padding: 20px;
@@ -40,13 +40,10 @@
       color: #555;
     }
 
-    /* Grid hiển thị các "thẻ phim" */
-    .movies-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+    /* Container cho 1 thẻ phim duy nhất */
+    .movie-container {
+      max-width: 400px;
+      margin: 0 auto; /* canh giữa trên trang */
     }
 
     .movie-card {
@@ -76,8 +73,8 @@
       margin: 0 10px 10px 10px;
     }
 
-    /* Nút hoặc link "Xem Thư Mục" */
-    .watch-link {
+    /* Nút hoặc link đến Thư Mục Drive */
+    .folder-link {
       display: inline-block;
       margin-top: 8px;
       padding: 10px 20px;
@@ -88,7 +85,7 @@
       transition: background-color 0.3s ease;
       font-size: 1rem;
     }
-    .watch-link:hover {
+    .folder-link:hover {
       background-color: #f06292; /* Đậm hơn chút khi hover */
     }
 
@@ -104,64 +101,27 @@
 <body>
   <header>
     <h1>Kho phim dành cho Mi Xinh</h1>
-    <p>Chọn thư mục tập phim yêu thích và thưởng thức trên Google Drive!</p>
+    <p>Nhấp vào hình hoặc nút để mở thư mục Google Drive!</p>
   </header>
 
   <main>
-    <div class="movies-grid">
-
-      <!-- Phim 1: Thư mục 1 -->
+    <div class="movie-container">
+      <!-- 1 thẻ phim duy nhất -->
       <div class="movie-card">
-        <!-- Thay link ảnh bằng poster hoặc ảnh đại diện -->
+        <!-- Thay FOLDER_ID bằng ID thư mục Drive thực -->
         <a href="https://drive.google.com/drive/u/3/folders/1-L6TYrTeyFHWh3Un-tDKj_QI86m1cJnB">
           <img src="https://picsum.photos/id/237/400/250" alt="Poster phim 1">
         </a>
-        <h2 class="movie-title">Phim Bộ Dễ Thương 1</h2>
-        <p class="movie-desc">
-          Thư mục chứa nhiều tập phim, câu chuyện hài hước và tình tiết lãng mạn.
-        </p>
-        <!-- Nút dẫn đến thư mục Drive -->
-        <a class="watch-link" 
+        <h2 class="movie-title">Phim Bộ Dễ Thương</h2>
+        <p class="movie-desc">Thư mục chứa nhiều tập phim thú vị, đáng yêu, giúp bạn thư giãn.</p>
+        <a 
+          class="folder-link" 
           href="https://drive.google.com/drive/u/3/folders/1-L6TYrTeyFHWh3Un-tDKj_QI86m1cJnB" 
-          target="_blank">
-          Bấm dô đây nè!
+          target="_blank"
+        >
+          Mở Thư Mục
         </a>
       </div>
-
-      <!-- Phim 2: Thư mục 2 -->
-      <div class="movie-card">
-        <a href="https://drive.google.com/drive/folders/FOLDER_ID_2?usp=sharing" target="_blank">
-          <img src="https://picsum.photos/id/1025/400/250" alt="Poster phim 2">
-        </a>
-        <h2 class="movie-title">Phim Bộ Dễ Thương 2</h2>
-        <p class="movie-desc">
-          Thư mục gồm nhiều tập phim đặc sắc, kịch tính và không kém phần đáng yêu.
-        </p>
-        <a class="watch-link" 
-          href="https://drive.google.com/drive/folders/FOLDER_ID_2?usp=sharing" 
-          target="_blank">
-          Xem Thư Mục
-        </a>
-      </div>
-
-      <!-- Phim 3: Thư mục 3 -->
-      <div class="movie-card">
-        <a href="https://drive.google.com/drive/folders/FOLDER_ID_3?usp=sharing" target="_blank">
-          <img src="https://picsum.photos/id/433/400/250" alt="Poster phim 3">
-        </a>
-        <h2 class="movie-title">Phim Bộ Dễ Thương 3</h2>
-        <p class="movie-desc">
-          Thư mục phim lấy bối cảnh thú vị, nhân vật đa dạng, phù hợp để thư giãn.
-        </p>
-        <a class="watch-link" 
-          href="https://drive.google.com/drive/folders/FOLDER_ID_3?usp=sharing" 
-          target="_blank">
-          Xem Thư Mục
-        </a>
-      </div>
-
-      <!-- Thêm phim? Copy đoạn movie-card,
-           sửa link ảnh + link folder + text theo nhu cầu -->
     </div>
   </main>
 
