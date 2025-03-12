@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Kho phim dành cho Mi Xinh</title>
 
-  <!-- Google Font "Patrick Hand" (font chữ dễ thương) -->
+  <!-- Google Font "Patrick Hand" (chữ dễ thương) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link
     href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
@@ -12,138 +12,155 @@
   />
 
   <style>
-    /* RESET CSS cơ bản */
+    /* RESET CSS */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    /* 
-      Đặt màu nền chính (#ffe4e1 - hồng nhạt)
-      và lồng 4 ảnh nền, mỗi ảnh ở 1 góc 
-    */
+    /* Body nền hồng, cho phép tương đối .movie-container */
     body {
+      position: relative;      /* Để thẻ phim có thể "absolute" bên trong */
+      min-height: 100vh;       /* Chiều cao tối thiểu màn hình */
+      background-color: #ffe4e1; /* Hồng nhạt */
       font-family: 'Patrick Hand', cursive;
-      background-color: #ffe4e1; /* Nền hồng nhạt */
-      /* 4 ảnh ở 4 góc, ví dụ dùng picsum.photos (thay link ảnh tuỳ ý) */
-      background-image:
-        url('https://picsum.photos/id/1015/200/200'),
-        url('https://picsum.photos/id/1002/200/200'),
-        url('https://picsum.photos/id/1003/200/200'),
-        url('https://picsum.photos/id/1004/200/200');
-      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-      background-position: top left, top right, bottom left, bottom right;
-      /* Cho ảnh nền nhỏ xíu mỗi góc; có thể chỉnh background-size nếu cần */
+      color: #333;
     }
 
-    /* 
-      Tạo 1 khung (wrapper) màu hồng để chứa nội dung, 
-      nhìn như có frame riêng trên nền 4 ảnh.
-    */
-    .wrapper {
-      max-width: 600px;
-      margin: 40px auto; /* canh giữa và cách mép trên 40px */
-      background-color: #ffc0cb; /* Màu hồng cho khung container */
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    }
-
+    /* Phần tiêu đề trang ở trên cùng */
     header {
       text-align: center;
-      margin-bottom: 20px;
+      padding: 20px 0;
+      background-color: #ffc0cb; /* Một dải hồng đậm hơn dưới tiêu đề */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     }
     header h1 {
-      font-size: 2rem;
-      color: #ff69b4; /* Hồng đậm cho tiêu đề */
-      margin-bottom: 6px;
+      font-size: 3rem;        /* Tên trang to hơn */
+      color: #ff69b4;
+      margin-bottom: 10px;
     }
     header p {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       color: #555;
     }
 
-    /* Thẻ phim (card) duy nhất */
+    /* Vùng chứa 4 ảnh, đặt dưới header */
+    .images-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 800px;
+      margin: 30px auto; /* canh giữa, cách trên 30px */
+      padding: 0 20px;
+    }
+    .images-grid img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Thẻ phim/card nhỏ, đặt ở góc trái dưới màn hình */
+    .movie-container {
+      position: absolute; /* Bọc card để di chuyển góc dưới trái */
+      left: 20px;
+      bottom: 20px;
+      width: 250px;       /* Thẻ phim nhỏ */
+    }
+
     .movie-card {
       background-color: #fff;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      overflow: hidden;
       text-align: center;
-      padding-bottom: 16px;
+      overflow: hidden;
     }
+
     .movie-card img {
       width: 100%;
-      height: auto;
       display: block;
+      height: auto;
     }
+
     .movie-title {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       color: #e91e63;
       margin: 10px 0;
     }
+
     .movie-desc {
       font-size: 1rem;
       color: #555;
       margin: 0 10px 10px 10px;
     }
-    /* Nút/link tới thư mục Drive */
+
     .folder-link {
       display: inline-block;
-      margin-top: 8px;
-      padding: 10px 20px;
+      margin-bottom: 10px;
+      padding: 8px 15px;
       background-color: #ff69b4;
       color: #fff;
       text-decoration: none;
       border-radius: 20px;
       transition: background-color 0.3s ease;
       font-size: 1rem;
+      margin-top: 5px;
     }
     .folder-link:hover {
-      background-color: #f06292; /* Hơi đậm hơn khi hover */
+      background-color: #f06292;
     }
 
     footer {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 40px;
+      padding: 10px 0;
       color: #888;
     }
   </style>
 </head>
 
 <body>
-  <div class="wrapper"><!-- Khung màu hồng chứa nội dung -->
-    <header>
-      <h1>Kho phim dành cho Mi Xinh</h1>
-      <p>Bấm vào ảnh hoặc nút bên dưới để vào thư mục phim nhé!</p>
-    </header>
+  <!-- Phần tiêu đề -->
+  <header>
+    <h1>Kho phim dành cho Mi Xinh</h1>
+    <p>Bấm vào hình hoặc nút dưới đây để vào thư mục phim nhé!</p>
+  </header>
 
-    <main>
-      <!-- Thẻ phim (card) duy nhất -->
-      <div class="movie-card">
-        <!-- Thay FOLDER_ID bằng ID thư mục Drive của bạn -->
-        <a href="https://drive.google.com/drive/folders/FOLDER_ID" target="_blank">
-          <!-- Thay link ảnh poster theo ý thích -->
-          <img src="https://picsum.photos/id/237/600/300" alt="Poster phim">
-        </a>
-        <h2 class="movie-title">Phim Bộ Dễ Thương</h2>
-        <p class="movie-desc">
-          Thư mục chứa nhiều tập phim đầy thú vị, nhẹ nhàng, phù hợp để thư giãn.
-        </p>
-        <a
-          class="folder-link"
-          href="https://drive.google.com/drive/folders/FOLDER_ID"
-          target="_blank"
-        >
-          Mở Thư Mục
-        </a>
-      </div>
-    </main>
+  <!-- 4 hình ảnh lớn đặt dưới tiêu đề -->
+  <section class="images-grid">
+    <!-- Bạn thay link ảnh tùy ý, đây chỉ là ví dụ -->
+    <img src="https://drive.google.com/file/d/1it8EtFSZNzVxmCcnioHJcUsy336XyBDx/view?usp=drive_link">
+    <img src="https://drive.google.com/file/d/1AafjniNZQuQV9xrXFmfzrHqJ2lQhhgaS/view?usp=drive_link">
+    <img src="https://drive.google.com/file/d/1ungzUzEQaSylPT4grhMacSImYVXuRa4Y/view?usp=drive_link">
+    <img src="https://drive.google.com/file/d/1yhaTUKYPnNdjMHBZEgwVBlawUdCQPAWi/view?usp=drive_link">
+  </section>
 
-    <footer>
-      <p>© 2025 - Kho phim dành cho Mi Xinh</p>
-    </footer>
+  <!-- Thẻ phim nhỏ, góc trái dưới -->
+  <div class="movie-container">
+    <div class="movie-card">
+      <a href="https://drive.google.com/drive/folders/FOLDER_ID" target="_blank">
+        <!-- Thay link ảnh poster nhỏ -->
+        <img src="https://picsum.photos/id/237/400/250" alt="Poster phim">
+      </a>
+      <h2 class="movie-title">Phim Bộ Dễ Thương</h2>
+      <p class="movie-desc">
+        Thư mục chứa nhiều tập phim thú vị, nhẹ nhàng, phù hợp để thư giãn.
+      </p>
+      <!-- Thay FOLDER_ID bằng ID thư mục Google Drive -->
+      <a
+        class="folder-link"
+        href="https://drive.google.com/drive/folders/FOLDER_ID"
+        target="_blank"
+      >
+        Mở Thư Mục
+      </a>
+    </div>
   </div>
+
+  <footer>
+    <p>© 2025 - Kho phim dành cho Mi Xinh</p>
+  </footer>
 </body>
 </html>
